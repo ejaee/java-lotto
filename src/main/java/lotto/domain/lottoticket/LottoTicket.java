@@ -1,6 +1,7 @@
 package lotto.domain.lottoticket;
 
 import java.util.List;
+import java.util.Objects;
 import lotto.domain.exception.DuplicationOfLottoTicketException;
 import lotto.domain.exception.SizeOfLottoTicketException;
 
@@ -34,6 +35,19 @@ public class LottoTicket {
         if (count != LOTTO_TICKET_SIZE) {
             throw new DuplicationOfLottoTicketException();
         }
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final LottoTicket that = (LottoTicket) o;
+        return Objects.equals(numbers, that.numbers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numbers);
     }
 
 }
