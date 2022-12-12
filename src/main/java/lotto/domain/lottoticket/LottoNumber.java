@@ -1,5 +1,6 @@
 package lotto.domain.lottoticket;
 
+import java.util.Objects;
 import lotto.domain.exception.LottoNumberException;
 
 public class LottoNumber {
@@ -28,4 +29,16 @@ public class LottoNumber {
         return MIN_VALUE <= number && number <= MAX_VALUE;
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final LottoNumber that = (LottoNumber) o;
+        return lottoNumber == that.lottoNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lottoNumber);
+    }
 }

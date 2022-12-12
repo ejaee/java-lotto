@@ -3,10 +3,23 @@ package lotto.domain.lottoticket;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class LottoNumberTest {
+
+    @Test
+    void equals() {
+        // given
+        final int number = 1;
+
+        // when
+        LottoNumber lottoNumber = LottoNumber.from(number);
+
+        // then
+        assertThat(lottoNumber).isEqualTo(LottoNumber.from(number));
+    }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 45, 30})
