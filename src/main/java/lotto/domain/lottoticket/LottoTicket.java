@@ -1,11 +1,11 @@
-package lotto;
+package lotto.domain.lottoticket;
 
 import java.util.List;
 
-public class Lotto {
+public class LottoTicket {
     private final List<Integer> numbers;
 
-    public Lotto(List<Integer> numbers) {
+    public LottoTicket(List<Integer> numbers) {
         validate(numbers);
         this.numbers = numbers;
     }
