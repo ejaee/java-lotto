@@ -14,6 +14,10 @@ public class LottoTickets {
         return new LottoTickets(lottoTickets);
     }
 
+    public int size() {
+        return lottoTickets.size();
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

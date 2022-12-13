@@ -37,4 +37,12 @@ class LottoTicketsTest {
         assertThat(lottoTickets).isEqualTo(LottoTickets.from(lottoTicket));
     }
 
+    @Test
+    void size() {
+        LottoTickets lottoTickets = LottoTickets.from(lottoTicket);
+
+        // then
+        assertThat(lottoTickets.size()).isEqualTo(3);
+    }
+
 }
