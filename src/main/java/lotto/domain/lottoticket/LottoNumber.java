@@ -29,6 +29,10 @@ public class LottoNumber {
         return MIN_VALUE <= number && number <= MAX_VALUE;
     }
 
+    public int getLottoNumber() {
+        return lottoNumber;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
