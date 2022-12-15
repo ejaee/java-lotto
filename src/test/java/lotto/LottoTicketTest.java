@@ -33,6 +33,19 @@ class LottoTicketTest {
         LottoTicket lottoTicket = new LottoTicket(lottoNumbers);
 
         // then
-        assertThat(lottoTicket).isEqualTo(new LottoTicket(lottoNumbers));
+        assertThat(lottoTicket).isEqualTo(new LottoTicket(List.of(1, 2, 3, 4, 5, 6)));
     }
+
+    @Test
+    void sort() {
+        // given
+        final List<Integer> lottoNumbers = List.of(6, 5, 4, 3, 2, 1);
+
+        // when
+        LottoTicket lottoTicket = new LottoTicket(lottoNumbers);
+
+        // then
+        assertThat(lottoTicket).isEqualTo(new LottoTicket(List.of(1, 2, 3, 4, 5, 6)));
+    }
+
 }

@@ -31,4 +31,12 @@ public class LottoTickets {
         return Objects.hash(lottoTickets);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (LottoTicket ticket : lottoTickets) {
+            sb.append(ticket).append("\n");
+        }
+        return sb.toString();
+    }
 }

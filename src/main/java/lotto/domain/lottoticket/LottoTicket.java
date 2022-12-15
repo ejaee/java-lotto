@@ -1,11 +1,14 @@
 package lotto.domain.lottoticket;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import lotto.domain.exception.DuplicationOfLottoTicketException;
 import lotto.domain.exception.SizeOfLottoTicketException;
 
 public class LottoTicket {
+
     public static final int LOTTO_TICKET_SIZE = 6;
 
     private final List<Integer> numbers;
@@ -13,7 +16,10 @@ public class LottoTicket {
     public LottoTicket(List<Integer> numbers) {
         validate(numbers);
 
-        this.numbers = numbers;
+        List<Integer> numbersList = new ArrayList<>(numbers);
+        Collections.sort(numbersList);
+
+        this.numbers = numbersList;
     }
 
     private void validate(List<Integer> numbers) {
@@ -43,8 +49,12 @@ public class LottoTicket {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final LottoTicket that = (LottoTicket) o;
         return Objects.equals(numbers, that.numbers);
     }
@@ -54,4 +64,8 @@ public class LottoTicket {
         return Objects.hash(numbers);
     }
 
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
 }

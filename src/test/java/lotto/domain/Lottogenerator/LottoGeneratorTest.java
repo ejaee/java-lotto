@@ -2,6 +2,7 @@ package lotto.domain.Lottogenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import lotto.domain.lottoticket.LottoMoney;
 import lotto.domain.lottoticket.LottoTickets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,8 +28,11 @@ class LottoGeneratorTest {
 
     @Test
     void createLottoTickets() {
+        // given
+        LottoMoney lottoMoney = LottoMoney.from(3000);
+
         // when
-        LottoTickets lottoTickets = lottoGenerator.createLottoTicket(3, new AutoLottoMachine());
+        LottoTickets lottoTickets = lottoGenerator.createLottoTicket(lottoMoney, new AutoLottoMachine());
 
         // then
         assertThat(lottoTickets.size()).isEqualTo(3);
