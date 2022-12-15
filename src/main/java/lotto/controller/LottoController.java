@@ -1,8 +1,11 @@
 package lotto.controller;
 
+import lotto.domain.Lottogenerator.AutoLottoMachine;
+import lotto.domain.Lottogenerator.LottoGenerator;
 import lotto.domain.lottoticket.LottoMoney;
 import lotto.domain.lottoticket.LottoNumber;
 import lotto.domain.lottoticket.LottoTicket;
+import lotto.domain.lottoticket.LottoTickets;
 import lotto.domain.utils.BasicLottoInputParser;
 import lotto.domain.utils.LottoTicketInputParser;
 import lotto.view.InputView;
@@ -20,6 +23,7 @@ public class LottoController {
     public void run() {
         try {
             LottoMoney LottoMoney = inputBudget();
+            LottoTickets lottoTickets = buyLottoTicket(LottoMoney);
 
             LottoTicket winningLotto = inputWinningLotto();
 
@@ -33,6 +37,12 @@ public class LottoController {
         String inputMoney = inputView.scanLottoMoney();
 
         return BasicLottoInputParser.parseLottoMoney(inputMoney);
+    }
+
+    private LottoTickets buyLottoTicket(LottoMoney lottoMoney) {
+        LottoGenerator lottoGenerator = LottoGenerator.getInstance();
+
+        return lottoGenerator.createLottoTicket(lottoMoney, new AutoLottoMachine());
     }
 
     private LottoTicket inputWinningLotto() {

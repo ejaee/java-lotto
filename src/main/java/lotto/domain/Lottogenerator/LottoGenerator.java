@@ -2,6 +2,7 @@ package lotto.domain.Lottogenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.domain.lottoticket.LottoMoney;
 import lotto.domain.lottoticket.LottoTicket;
 import lotto.domain.lottoticket.LottoTickets;
 
@@ -18,10 +19,10 @@ public class LottoGenerator {
         public static final LottoGenerator INSTANCE = new LottoGenerator();
     }
 
-    public LottoTickets createLottoTicket(int amount, LottoMachine lottoMachine) {
+    public LottoTickets createLottoTicket(LottoMoney lottoMoney, LottoMachine lottoMachine) {
         List<LottoTicket> lottoTicketList = new ArrayList<>();
 
-        for (int i = 0; i < amount; ++i) {
+        for (int i = 0; i < lottoMoney.calculateSizeOfTicket(); ++i) {
             lottoTicketList.add(lottoMachine.generateLotto());
         }
         return LottoTickets.from(lottoTicketList);
