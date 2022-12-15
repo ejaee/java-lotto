@@ -24,6 +24,7 @@ public class LottoController {
         try {
             LottoMoney LottoMoney = inputBudget();
             LottoTickets lottoTickets = buyLottoTicket(LottoMoney);
+            outputView.printLottoTickets(lottoTickets);
 
             LottoTicket winningLotto = inputWinningLotto();
 
